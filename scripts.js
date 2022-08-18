@@ -32,6 +32,12 @@ decimal.addEventListener('click',  () => {
     previousKeyType = "number";
 });
 
+equals.addEventListener('click', () => {
+    previousKeyType = "operator";
+    result();
+    operator = "";
+});
+
 nums.forEach(num => num.addEventListener('click', () => {
     if(equation.textContent.length == 10 && previousKeyType == "number") return;
     if (equation.textContent == "0" || previousKeyType == "operator") equation.textContent = num.textContent;
@@ -40,9 +46,18 @@ nums.forEach(num => num.addEventListener('click', () => {
 }));
 
 opers.forEach(oper => oper.addEventListener('click', () => {
-    operator = oper.textContent;
     previousKeyType = "operator";
+    operator ? result() : a = Number(equation.textContent);
+    operator = oper.textContent;
 }));
+
+function result(){
+    b = Number(equation.textContent);
+    let temp = operate(operator, a, b);
+    if(temp.toString().length > 10) temp = temp.toExponential(2);
+    equation.textContent = temp;
+    a = temp;
+}
 
 function add(a, b) {
     return a + b;
