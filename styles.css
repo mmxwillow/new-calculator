@@ -48,6 +48,9 @@ button:active{
     border-radius: 1em;
     background-color: rgba(241, 86, 255, 0.6);
 }
+.equals:active{
+    background-color: rgba(157, 52, 167, 0.6);
+}
 .oper, .clear, .back{
     color: rgba(241, 86, 255, 1);
 }
